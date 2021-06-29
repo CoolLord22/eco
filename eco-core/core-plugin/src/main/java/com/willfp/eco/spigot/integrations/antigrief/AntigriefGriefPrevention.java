@@ -47,8 +47,8 @@ public class AntigriefGriefPrevention implements AntigriefWrapper {
         if (victim instanceof Player) {
             return claim == null;
         } else {
-            if (claim != null && claim.ownerID != null) {
-                return claim.ownerID.equals(player.getUniqueId());
+            if (claim != null) {
+                return claim.allowContainers(player) == null;
             }
             return true;
         }
